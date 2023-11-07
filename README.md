@@ -6,18 +6,17 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ### Student Info
 
--   Name: _YOUR NAME_
--   Section: _##_
+-   Name: Thomas Berrios
+-   Section: 3
 
 ## Simulation Design
 
-_A brief explanation of your simulation._
+ - The simulation will be of planes and jets flying around in a battle.
 
 ### Controls
 
 -   _List all of the actions the player can have in your simulation_
-    -   _Include how to preform each action ( keyboard, mouse, UI Input )_
-    -   _Include what impact an action has in the simulation ( if is could be unclear )_
+      - The player input would be launching a flak puff into the fight. It would be controlled by the mouse or possibly WASD to simulate the turret movement. If a plane/jet is hit by a flack puff, it would be destroyed.
 
 ## _Agent 1 Name_
 
