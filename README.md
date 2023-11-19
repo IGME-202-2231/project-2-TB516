@@ -16,80 +16,78 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 ### Controls
 
 -   _List all of the actions the player can have in your simulation_
-      - The player input would be launching a flak puff into the fight. It would be controlled by the mouse or possibly WASD to simulate the turret movement. If a plane/jet is hit by a flack puff, it would be destroyed.
+      - The player input would be launching a flak puff into the fight. It would be controlled by the mouse. If a plane/jet is hit by a flack puff, it would be destroyed.
 
-## _Agent 1 Name_
+## Fighter
 
-_A brief explanation of this agent._
+   - Wander/Flock around scene. When an enemy plane is in range, start seeking it to attack.
 
-### _State 1 Name_
+### Formation
 
-**Objective:** _A brief explanation of this state's objective._
-
-#### Steering Behaviors
-
-- _List all behaviors used by this state_
-   - _If behavior has input data list it here_
-   - _eg, Flee - nearest Agent2_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
-   
-#### State Transistions
-
-- _List all the ways this agent can transition to this state_
-   - _eg, When this agent gets within range of Agent2_
-   - _eg, When this agent has reached target of State2_
-   
-### _State 2 Name_
-
-**Objective:** _A brief explanation of this state's objective._
+   - Idle fly around scene. Stays near bomber flock but can wander around more freely.
 
 #### Steering Behaviors
 
 - _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+   - Wander, Flock with other allied planes
+- Obstacles - Avoids flack puffs
+- Seperation - None
    
 #### State Transistions
 
 - _List all the ways this agent can transition to this state_
+   - When the plane is out of combat range of other enemy planes, this state is entered.
+   - When this agent gets in range of enemy planes, it will exit Search
+   
+### Combat
 
-## _Agent 2 Name_
-
-_A brief explanation of this agent._
-
-### _State 1 Name_
-
-**Objective:** _A brief explanation of this state's objective._
+**Objective:** Seek closest enemy plane to destroy it
 
 #### Steering Behaviors
 
 - _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+- Obstacles - Flack puffs, enemy projectiles
+- Seperation - Seperates from all enemy planes except its target
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
-   
-### _State 2 Name_
+   - When an enemy plane enters combat radius, the fighter will enter combat state
 
-**Objective:** _A brief explanation of this state's objective._
+## Bomber
+
+   - Flocks with allied fighters and bombers. When in range of enemy fighters they will scatter and avoid all other planes
+
+### Formation
+
+**Objective:** Flock with allied fighters and each other to stay close to protection
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+   - _List all behaviors used by this state_
+   - Obstacles - Flack puffs
+   - Seperation - Seperates from enemy planes while flocking
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+   - When there are no enemy planes in combat radius, this state will be entered
+   
+### Scatter
+
+**Objective:** Break formation and scatter/get away from all other planes
+
+#### Steering Behaviors
+
+   - _List all behaviors used by this state_
+   - Obstacles - Flack, enemy bullets
+   - Seperation - All other planes
+   
+#### State Transistions
+
+   - When an enemy plane enters the combat radius, this state is entered
 
 ## Sources
 
--   _List all project sources here –models, textures, sound clips, assets, etc._
--   _If an asset is from the Unity store, include a link to the page and the author’s name_
+   - https://opengameart.org/content/wwii-pixel-aircraft-sidescroller-sprites
 
 ## Make it Your Own
 
