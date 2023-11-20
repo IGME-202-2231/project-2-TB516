@@ -20,24 +20,23 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Fighter
 
-   - Wander/Flock around scene. When an enemy plane is in range, start seeking it to attack.
+   - Wander while Flocking around scene. When an enemy plane is in range, start seeking it to attack.
 
 ### Formation
 
-   - Idle fly around scene. Stays near bomber flock but can wander around more freely.
+   - Wander fly around scene. Flocks with bombers, but wander force is more powerful so its not a super tight flock.
 
 #### Steering Behaviors
 
 - _List all behaviors used by this state_
-   - Wander, Flock with other allied planes
-- Obstacles - Avoids flack puffs
-- Seperation - None
+   - Wander, Flock with other allied planes, Stay in bounds
+- Obstacles - Flack puffs
+- Seperation - Light seperation from other fighters to avoid overlapping
    
 #### State Transistions
 
 - _List all the ways this agent can transition to this state_
-   - When the plane is out of combat range of other enemy planes, this state is entered.
-   - When this agent gets in range of enemy planes, it will exit Search
+   - When there are no enemy planes in combat range, this state is entered.
    
 ### Combat
 
@@ -46,8 +45,9 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 #### Steering Behaviors
 
 - _List all behaviors used by this state_
-- Obstacles - Flack puffs, enemy projectiles
-- Seperation - Seperates from all enemy planes except its target
+   - Seek, Stay in bounds
+- Obstacles - Flack puffs
+- Seperation - Seperates from other fighters to avoid overlap
    
 #### State Transistions
 
@@ -64,8 +64,9 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 #### Steering Behaviors
 
    - _List all behaviors used by this state_
+      - Flock, Wander, Stay in bounds
    - Obstacles - Flack puffs
-   - Seperation - Seperates from enemy planes while flocking
+   - Seperation - Seperates from allied bombers to avoid overlap
    
 #### State Transistions
 
@@ -73,12 +74,13 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
    
 ### Scatter
 
-**Objective:** Break formation and scatter/get away from all other planes
+**Objective:** Break formation and scatter/get away from all other planes. Evades closest enemy fighter.
 
 #### Steering Behaviors
 
    - _List all behaviors used by this state_
-   - Obstacles - Flack, enemy bullets
+      - Stay in bounds, Evade
+   - Obstacles - Flack
    - Seperation - All other planes
    
 #### State Transistions
@@ -91,9 +93,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Make it Your Own
 
-- _List out what you added to your game to make it different for you_
-- _If you will add more agents or states make sure to list here and add it to the documention above_
-- _If you will add your own assets make sure to list it here and add it to the Sources section
+   - I would like to make it so the planes can attack/destroy each other.
 
 ## Known Issues
 

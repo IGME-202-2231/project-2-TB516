@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,12 +126,12 @@ TextureImporter:
       name: Spitfire_sprites_transparent_9
       rect:
         serializedVersion: 2
-        x: 230
-        y: 173
+        x: 34
+        y: 230
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: Spitfire_sprites_transparent_10
       rect:
         serializedVersion: 2
-        x: 240
-        y: 173
-        width: 8
-        height: 8
+        x: 81
+        y: 152
+        width: 7
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: Spitfire_sprites_transparent_11
       rect:
         serializedVersion: 2
-        x: 250
-        y: 173
-        width: 8
-        height: 8
+        x: 129
+        y: 143
+        width: 30
+        height: 58
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: Spitfire_sprites_transparent_12
       rect:
         serializedVersion: 2
-        x: 260
-        y: 173
-        width: 8
-        height: 8
+        x: 81
+        y: 134
+        width: 7
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: Spitfire_sprites_transparent_13
       rect:
         serializedVersion: 2
-        x: 282
-        y: 174
-        width: 41
-        height: 15
+        x: 130
+        y: 82
+        width: 29
+        height: 58
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: Spitfire_sprites_transparent_14
       rect:
         serializedVersion: 2
-        x: 46
-        y: 122
-        width: 64
-        height: 17
+        x: 81
+        y: 116
+        width: 7
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: Spitfire_sprites_transparent_15
       rect:
         serializedVersion: 2
-        x: 276
-        y: 136
-        width: 55
-        height: 25
+        x: 76
+        y: 46
+        width: 17
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,190 +270,190 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_16
+      name: Spitfire_sprites_transparent_0
       rect:
         serializedVersion: 2
-        x: 116
-        y: 127
-        width: 16
-        height: 7
+        x: 26
+        y: 282
+        width: 15
+        height: 41
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 628a3bc01da2f734086054c49f7f7bc3
-      internalID: -359021074
+      spriteID: 9c18296587331de479af8c116cfe836f
+      internalID: -262110345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_17
+      name: Spitfire_sprites_transparent_1
       rect:
         serializedVersion: 2
-        x: 134
-        y: 127
-        width: 16
-        height: 7
+        x: 54
+        y: 276
+        width: 25
+        height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c06b0874581e17749a0cc8022df7d791
-      internalID: -1279372882
+      spriteID: f36d5a8be52727a48b5cb1e4bcd05b9b
+      internalID: -374432988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_18
+      name: Spitfire_sprites_transparent_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 127
-        width: 16
-        height: 7
+        x: 83
+        y: 271
+        width: 18
+        height: 65
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f312a6a4ca523643860610accc0c936
-      internalID: -870684035
+      spriteID: 317c4eb92ebe0b143917c9bfe1fecc4d
+      internalID: -1328670365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_19
+      name: Spitfire_sprites_transparent_3
       rect:
         serializedVersion: 2
-        x: 271
-        y: 114
-        width: 65
-        height: 18
+        x: 108
+        y: 275
+        width: 22
+        height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1072a9069a39bbf4f89c0f8518bb54c6
-      internalID: 1292943262
+      spriteID: 00cc54c198379be409569232041d0af5
+      internalID: -126224865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_20
+      name: Spitfire_sprites_transparent_4
       rect:
         serializedVersion: 2
-        x: 143
-        y: 56
-        width: 58
-        height: 30
+        x: 135
+        y: 256
+        width: 19
+        height: 93
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3bb4781e628430489910a9a59e11b8e
-      internalID: 1698403695
+      spriteID: b65da34c28a9a9b41b2e5399ab5ca44f
+      internalID: 785146491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_21
+      name: Spitfire_sprites_transparent_5
       rect:
         serializedVersion: 2
-        x: 275
-        y: 85
-        width: 56
-        height: 22
+        x: 160
+        y: 238
+        width: 26
+        height: 129
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77b26e4834ef96949b43c4e6108b4b9c
-      internalID: 1877597148
+      spriteID: 2b0b7978b46a4d941abe5469b35bd791
+      internalID: 1247359339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_22
+      name: Spitfire_sprites_transparent_6
       rect:
         serializedVersion: 2
-        x: 82
-        y: 56
-        width: 58
-        height: 29
+        x: 34
+        y: 260
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b26da34fa1bdd2245a406daad1acafe4
-      internalID: -1294656487
+      spriteID: 373653cb1d60fd549aff11d2038bb15e
+      internalID: -964005112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_23
+      name: Spitfire_sprites_transparent_7
       rect:
         serializedVersion: 2
-        x: 256
-        y: 61
-        width: 93
-        height: 19
+        x: 34
+        y: 250
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0424702e8aec98469f149cf93bbecee
-      internalID: 1570000742
+      spriteID: b94767f8b8459da488f9fc4c5c451163
+      internalID: 1616692982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spitfire_sprites_transparent_24
+      name: Spitfire_sprites_transparent_8
       rect:
         serializedVersion: 2
-        x: 238
-        y: 29
-        width: 129
-        height: 26
+        x: 34
+        y: 240
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e5a7ba74de3e9246b2157c530f9e762
-      internalID: -821997810
+      spriteID: 83a5b98fabbb6454895087757d326d28
+      internalID: 1351673001
       vertices: []
       indices: 
       edges: []
@@ -477,17 +477,7 @@ TextureImporter:
       Spitfire_sprites_transparent_13: -876720163
       Spitfire_sprites_transparent_14: 663415931
       Spitfire_sprites_transparent_15: -634738742
-      Spitfire_sprites_transparent_16: -359021074
-      Spitfire_sprites_transparent_17: -1279372882
-      Spitfire_sprites_transparent_18: -870684035
-      Spitfire_sprites_transparent_19: 1292943262
       Spitfire_sprites_transparent_2: -1328670365
-      Spitfire_sprites_transparent_20: 1698403695
-      Spitfire_sprites_transparent_21: 1877597148
-      Spitfire_sprites_transparent_22: -1294656487
-      Spitfire_sprites_transparent_23: 1570000742
-      Spitfire_sprites_transparent_24: -821997810
-      Spitfire_sprites_transparent_25: 810651922
       Spitfire_sprites_transparent_3: -126224865
       Spitfire_sprites_transparent_4: 785146491
       Spitfire_sprites_transparent_5: 1247359339
