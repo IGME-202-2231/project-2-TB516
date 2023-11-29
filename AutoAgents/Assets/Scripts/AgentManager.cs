@@ -45,11 +45,16 @@ public class AgentManager : Singleton<AgentManager>
 
         for (int i = 0; i < _bomberCount; i++)
         {
-            Bomber bomber = Instantiate(_bomberPrefab);
-            bomber.transform.position = new(Random.value - .5f, Random.value - .5f);
-            bomber.Team = Team.Red;
-
-            _teams[(int)Team.Red].Add(bomber);
+            SpawnAgent(Team.Red);
         }
+    }
+
+    private void SpawnAgent(Team team)
+    {
+        Bomber bomber = Instantiate(_bomberPrefab);
+        bomber.transform.position = new(Random.value - .5f, Random.value - .5f);
+        bomber.Team = team;
+
+        _teams[(int)team].Add(bomber);
     }
 }
