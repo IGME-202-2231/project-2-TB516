@@ -8,6 +8,8 @@ public class Bomber : Agent
         Scatter
     }
 
+    [Range(.2f, 50)][SerializeField] private float _seperateWeight = .2f;
+
     private BomberState _state;
     private AgentManager.Team _team;
 
@@ -28,8 +30,8 @@ public class Bomber : Agent
             case BomberState.Formation:
 
                 _totalForce += Wander();
-                _totalForce += Seperate(_team, 2);
-                _totalForce += StayInBounds();
+                _totalForce += Seperate(_team, _seperateWeight);
+                _totalForce += StayInBounds(weight:_boundsForce);
                 
                 break;
             #endregion
@@ -39,5 +41,6 @@ public class Bomber : Agent
                 break;
             #endregion
         }
+        _totalForce += AvoidObsticles();
     }
 }

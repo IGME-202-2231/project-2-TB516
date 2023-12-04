@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Agent : MonoBehaviour
@@ -6,9 +7,13 @@ public abstract class Agent : MonoBehaviour
     [SerializeField] private float _perlinOffset = 100;
     [SerializeField] protected PhysicsObject _physicsObject;
     [SerializeField] protected CircleCollider _agroField;
+    [SerializeField] protected CircleCollider _hitbox;
+    [Range(5, 400)][SerializeField] protected float _boundsForce = 2;
+    [Range(2, 10)][SerializeField] protected float _wanderRadius = 2;
 
     protected float _wanderAngle = 0;
     protected Vector3 _totalForce;
+    protected List<CircleCollider> _foundObsticles = new();
 
     protected void Start()
     {
@@ -90,8 +95,77 @@ public abstract class Agent : MonoBehaviour
         return Vector3.zero;
     }
 
+    protected Vector3 AvoidObsticles(float avoidTime = 4, float weight = 5)
+    {
+        Vector3 totalAvoidForce = Vector3.zero;
+        _foundObsticles.Clear();
+
+        Vector3 futurePos = GetFuturePosition(avoidTime);
+        float futureDistance = Vector3.Distance(transform.position, futurePos) + _hitbox.Radius;
+
+        for (int i = 0; i < AgentManager.Instance.Obsticles.Count; i++)
+        {
+            Vector3 agentToObst = AgentManager.Instance.Obsticles[i].transform.position - transform.position;
+            
+            float forwardDot = Vector3.Dot(agentToObst, transform.up);
+            float rightDot = Vector3.Dot(agentToObst, transform.right);
+
+            if (forwardDot >= -AgentManager.Instance.Obsticles[i].Radius
+                && forwardDot <= futureDistance + AgentManager.Instance.Obsticles[i].Radius
+                && Mathf.Abs(rightDot) <= _hitbox.Radius + AgentManager.Instance.Obsticles[i].Radius)
+            {
+                _foundObsticles.Add(AgentManager.Instance.Obsticles[i]);
+                
+                if (rightDot > 0)
+                {
+                    totalAvoidForce -= transform.right * _maxForce;
+                }
+                else
+                {
+                    totalAvoidForce += transform.right * _maxForce;
+                }
+            }
+        }
+        
+        return weight * totalAvoidForce;
+    }
+
     protected Vector3 GetFuturePosition(float secInAdvance = 1)
     {
         return transform.position + (_physicsObject.Velocity * secInAdvance);
+    }
+    
+    private void OnDrawGizmos()
+    {
+        //
+        //  Draw safe space box
+        //
+        Vector3 futurePos = GetFuturePosition(4);
+
+        float dist = Vector3.Distance(transform.position, futurePos);
+
+        Vector3 boxSize = new Vector3(_hitbox.Radius * 2f, dist * 2, _hitbox.Radius * 2f);
+
+        Vector3 boxCenter = Vector3.zero;
+        boxCenter.y += dist;
+
+        Gizmos.color = Color.green;
+
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(boxCenter, boxSize);
+        Gizmos.matrix = Matrix4x4.identity;
+
+        Gizmos.DrawWireSphere(futurePos, _hitbox.Radius);
+
+
+        //
+        //  Draw lines to found obstacles
+        //
+        Gizmos.color = Color.yellow;
+
+        foreach (CircleCollider pos in _foundObsticles)
+        {
+            Gizmos.DrawLine(transform.position, pos.transform.position);
+        }
     }
 }

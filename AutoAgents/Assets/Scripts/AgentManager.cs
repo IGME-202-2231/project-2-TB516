@@ -36,8 +36,10 @@ public class AgentManager : Singleton<AgentManager>
     }
 
     private List<List<Agent>> _teams = new();
+    [SerializeField] private List<CircleCollider> _obsticals = new();
 
     public List<List<Agent>> Teams => _teams;
+    public List<CircleCollider> Obsticles => _obsticals;
 
     private void Start()
     {
