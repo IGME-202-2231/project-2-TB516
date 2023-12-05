@@ -8,19 +8,10 @@ public class Bomber : Agent
         Scatter
     }
 
-    [Range(.2f, 50)][SerializeField] private float _seperateWeight = .2f;
+    [Range(0, 100)][SerializeField] float _coheasionWeight = 0;
+    [Range(0, 100)][SerializeField] float _alignmentWeight = 0;
 
     private BomberState _state;
-    private AgentManager.Team _team;
-
-    public AgentManager.Team Team
-    {
-        get => _team;
-        set
-        {
-            _team = value;
-        }
-    }
 
     protected override void CalcSteeringForces()
     {
@@ -28,19 +19,21 @@ public class Bomber : Agent
         {
             #region Formation
             case BomberState.Formation:
-
-                _totalForce += Wander();
+                _totalForce += Wander(weight:_wanderWeight);
                 _totalForce += Seperate(_team, _seperateWeight);
-                _totalForce += StayInBounds(weight:_boundsForce);
-                
+                _totalForce += Cohesion(_coheasionWeight);
+                _totalForce += Alignment(_alignmentWeight);
                 break;
             #endregion
 
             #region Scatter
             case BomberState.Scatter:
+                _totalForce += Seperate(_team, 1000);
+                _totalForce += Seperate((AgentManager.Team)((((int)_team)+1) % 2), 1000);
                 break;
             #endregion
         }
         _totalForce += AvoidObsticles();
+        _totalForce += StayInBounds(weight: _boundsForce);
     }
 }

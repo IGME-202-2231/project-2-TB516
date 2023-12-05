@@ -8,7 +8,14 @@ public class CircleCollider : MonoBehaviour
 
     protected Vector3 _circlePos;
 
-    public Vector3 CirclePos => _circlePos;
+    public Vector3 CirclePos
+    {
+        get => _circlePos;
+        set
+        {
+            _circlePos = value;
+        }
+    }
 
     public float Radius => _circleRadius;
 

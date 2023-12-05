@@ -147,6 +147,9 @@ MonoBehaviour:
   _physicsObject: {fileID: 2982065331142008744}
   _agroField: {fileID: 3616420721054372262}
   _hitbox: {fileID: 7375328682288415083}
-  _boundsForce: 5
+  _boundsForce: 400
   _wanderRadius: 2
-  _seperateWeight: 0.2
+  _seperateWeight: 2
+  _wanderWeight: 2
+  _coheasionWeight: 0
+  _alignmentWeight: 0

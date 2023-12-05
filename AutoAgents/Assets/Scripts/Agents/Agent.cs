@@ -8,12 +8,24 @@ public abstract class Agent : MonoBehaviour
     [SerializeField] protected PhysicsObject _physicsObject;
     [SerializeField] protected CircleCollider _agroField;
     [SerializeField] protected CircleCollider _hitbox;
-    [Range(5, 400)][SerializeField] protected float _boundsForce = 2;
+    [Range(0, 1000)][SerializeField] protected float _boundsForce = 100;
     [Range(2, 10)][SerializeField] protected float _wanderRadius = 2;
+    [Range(.2f, 10)][SerializeField] protected float _seperateWeight = .2f;
+    [Range(.1f, 5)][SerializeField] protected float _wanderWeight = 1;
 
     protected float _wanderAngle = 0;
     protected Vector3 _totalForce;
     protected List<CircleCollider> _foundObsticles = new();
+    protected AgentManager.Team _team;
+
+    public AgentManager.Team Team
+    {
+        get => _team;
+        set
+        {
+            _team = value;
+        }
+    }
 
     protected void Start()
     {
@@ -79,6 +91,16 @@ public abstract class Agent : MonoBehaviour
         }
 
         return weight * seperationForce;
+    }
+
+    protected Vector3 Cohesion(float weight = 1)
+    {
+        return weight * Seek(AgentManager.Instance.TeamFlocks[(int)_team].Center);
+    }
+
+    protected Vector3 Alignment(float weight = 1)
+    {
+        return weight * (AgentManager.Instance.TeamFlocks[(int)_team].Direction * _physicsObject.MaxSpeed) - _physicsObject.Velocity;
     }
 
     protected Vector3 StayInBounds(float secInAdvance = 1, float weight = 5)
