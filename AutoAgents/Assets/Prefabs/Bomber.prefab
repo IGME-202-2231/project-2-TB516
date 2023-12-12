@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c23769d057d541a7b813f4b3d9063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _circleRadius: 0
+  _circleRadius: 5
   _circleHitboxOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &2982065331142008744
 MonoBehaviour:
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c23769d057d541a7b813f4b3d9063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _circleRadius: 0.2
+  _circleRadius: 0.25
   _circleHitboxOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &2898095627827731199
 MonoBehaviour:
@@ -142,14 +142,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ebe2b1499a0c240abd4ec41279e05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxForce: 10
+  _maxForce: 20
   _perlinOffset: 100
   _physicsObject: {fileID: 2982065331142008744}
   _agroField: {fileID: 3616420721054372262}
   _hitbox: {fileID: 7375328682288415083}
-  _boundsForce: 400
+  _renderer: {fileID: 1089172145324009359}
+  _boundsForce: 10000
   _wanderRadius: 2
-  _seperateWeight: 2
-  _wanderWeight: 2
-  _coheasionWeight: 0
-  _alignmentWeight: 0
+  _seperateWeight: 0.5
+  _wanderWeight: 12
+  _coheasionWeight: 15.9
+  _alignmentWeight: 20
+  _state: 0

@@ -8,10 +8,11 @@ public abstract class Agent : MonoBehaviour
     [SerializeField] protected PhysicsObject _physicsObject;
     [SerializeField] protected CircleCollider _agroField;
     [SerializeField] protected CircleCollider _hitbox;
-    [Range(0, 1000)][SerializeField] protected float _boundsForce = 100;
+    [SerializeField] protected SpriteRenderer _renderer;
+    [Range(0, 10000)][SerializeField] protected float _boundsForce = 100;
     [Range(2, 10)][SerializeField] protected float _wanderRadius = 2;
     [Range(.2f, 10)][SerializeField] protected float _seperateWeight = .2f;
-    [Range(.1f, 5)][SerializeField] protected float _wanderWeight = 1;
+    [Range(.1f, 100)][SerializeField] protected float _wanderWeight = 1;
 
     protected float _wanderAngle = 0;
     protected Vector3 _totalForce;
@@ -26,6 +27,9 @@ public abstract class Agent : MonoBehaviour
             _team = value;
         }
     }
+    public CircleCollider AgroField => _agroField;
+    public CircleCollider Hitbox => _hitbox;
+    public SpriteRenderer Renderer => _renderer;
 
     protected void Start()
     {
@@ -127,34 +131,58 @@ public abstract class Agent : MonoBehaviour
 
         for (int i = 0; i < AgentManager.Instance.Obsticles.Count; i++)
         {
-            Vector3 agentToObst = AgentManager.Instance.Obsticles[i].transform.position - transform.position;
-            
-            float forwardDot = Vector3.Dot(agentToObst, transform.up);
-            float rightDot = Vector3.Dot(agentToObst, transform.right);
-
-            if (forwardDot >= -AgentManager.Instance.Obsticles[i].Radius
-                && forwardDot <= futureDistance + AgentManager.Instance.Obsticles[i].Radius
-                && Mathf.Abs(rightDot) <= _hitbox.Radius + AgentManager.Instance.Obsticles[i].Radius)
-            {
-                _foundObsticles.Add(AgentManager.Instance.Obsticles[i]);
-                
-                if (rightDot > 0)
-                {
-                    totalAvoidForce -= transform.right * _maxForce;
-                }
-                else
-                {
-                    totalAvoidForce += transform.right * _maxForce;
-                }
-            }
+            totalAvoidForce += AvoidObsticle(futureDistance, AgentManager.Instance.Obsticles[i]);
         }
         
         return weight * totalAvoidForce;
     }
 
-    protected Vector3 GetFuturePosition(float secInAdvance = 1)
+    private Vector3 AvoidObsticle(float futureDistance, CircleCollider obsticle)
+    {
+        Vector3 agentToObst = obsticle.transform.position - transform.position;
+
+        float forwardDot = Vector3.Dot(agentToObst, transform.up);
+        float rightDot = Vector3.Dot(agentToObst, transform.right);
+
+        if (forwardDot >= -obsticle.Radius
+            && forwardDot <= futureDistance + obsticle.Radius
+            && Mathf.Abs(rightDot) <= _hitbox.Radius + obsticle.Radius)
+        {
+            _foundObsticles.Add(obsticle);
+
+            if (rightDot > 0)
+            {
+                return -transform.right * _maxForce * (1 / agentToObst.magnitude);
+            }
+            else
+            {
+                return transform.right * _maxForce * (1 / agentToObst.magnitude);
+            }
+        }
+        return Vector3.zero;
+    }
+
+    public Vector3 GetFuturePosition(float secInAdvance = 1)
     {
         return transform.position + (_physicsObject.Velocity * secInAdvance);
+    }
+
+    protected Agent FindClosestEnemy()
+    {
+        float minDist = float.MaxValue;
+        Agent closest = this;
+
+        for (int i = 0; i < AgentManager.Instance.Teams[((int)_team + 1) % 2].Count; i++)
+        {
+            float dist = Vector2.Distance(transform.position, AgentManager.Instance.Teams[((int)_team + 1) % 2][i].transform.position);
+
+            if (dist < minDist)
+            {
+                minDist = dist;
+                closest = AgentManager.Instance.Teams[((int)_team + 1) % 2][i];
+            }
+        }
+        return closest;
     }
     
     private void OnDrawGizmos()

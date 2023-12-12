@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlockManager
@@ -10,6 +11,7 @@ public class FlockManager
 
     public Vector3 Center => _center;
     public Vector3 Direction => _flockDirection;
+    public List<Agent> Flock => _flock;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +23,7 @@ public class FlockManager
     public void AddToFlock(Agent a)
     {
         _flock.Add(a);
+        _center = GetCenterPoint();
     }
 
     private Vector3 GetCenterPoint()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class CircleCollider : MonoBehaviour
 {
@@ -32,6 +33,11 @@ public class CircleCollider : MonoBehaviour
     public virtual bool IsCollidingWith(CircleCollider entity)
     {
         return (_circlePos - entity._circlePos).magnitude <= _circleRadius + entity._circleRadius;
+    }
+
+    public virtual bool ContainsPoint(Vector3 p)
+    {
+        return (_circlePos - p).magnitude <= _circleRadius;
     }
 
     protected void OnDrawGizmos()

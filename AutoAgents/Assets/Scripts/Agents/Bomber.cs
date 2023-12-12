@@ -11,7 +11,13 @@ public class Bomber : Agent
     [Range(0, 100)][SerializeField] float _coheasionWeight = 0;
     [Range(0, 100)][SerializeField] float _alignmentWeight = 0;
 
-    private BomberState _state;
+    [SerializeField] private BomberState _state;
+
+    public BomberState State
+    {
+        get => _state;
+        set { _state = value; }
+    }
 
     protected override void CalcSteeringForces()
     {
@@ -28,12 +34,11 @@ public class Bomber : Agent
 
             #region Scatter
             case BomberState.Scatter:
-                _totalForce += Seperate(_team, 1000);
-                _totalForce += Seperate((AgentManager.Team)((((int)_team)+1) % 2), 1000);
+                _totalForce += Flee(FindClosestEnemy().GetFuturePosition(2));
                 break;
             #endregion
         }
-        _totalForce += AvoidObsticles();
+        _totalForce += AvoidObsticles(weight: 1000);
         _totalForce += StayInBounds(weight: _boundsForce);
     }
 }

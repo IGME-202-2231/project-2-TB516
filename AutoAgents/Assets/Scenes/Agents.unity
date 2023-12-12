@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.04432181, g: 0.071110696, b: 0.11320752, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -225,6 +225,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1787448436}
   - component: {fileID: 1787448435}
+  - component: {fileID: 1787448437}
+  - component: {fileID: 1787448438}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -245,12 +247,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bomberPrefab: {fileID: 2898095627827731199, guid: c38548de845dc9b41a01b37837f28e10, type: 3}
-  _fighterPrefab: {fileID: 0}
+  _fighterPrefab: {fileID: 2131487826519861975, guid: 92936ceb750418c4a9f00f2846f4fead, type: 3}
   _obsticalPrefab: {fileID: 6240277546610166082, guid: 13e0448184742284faec394f76b956db, type: 3}
   _bomberCount: 5
-  _fighterCount: 0
-  _maxObsticals: 0
-  _obsticleMaxSpawnTime: 5
+  _fighterCount: 5
+  _maxObsticles: 5
 --- !u!4 &1787448436
 Transform:
   m_ObjectHideFlags: 0
@@ -259,10 +260,68 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787448434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21655422, y: -0.5174483, z: -0.03638221}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1787448437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787448434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b180278d1e2f0c04e89f861c21caa681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1787448438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787448434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: bb55209f7e97dd74eac5725bfe3de100, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1787448437}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnMouseClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5362daa6-a51c-4b5e-9158-fe869bcaba50
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

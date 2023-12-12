@@ -45,7 +45,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 #### Steering Behaviors
 
 - _List all behaviors used by this state_
-   - Seek, Stay in bounds
+   - Pursue, Stay in bounds
 - Obstacles - Flack puffs
 - Seperation - Seperates from other fighters to avoid overlap
    
@@ -79,7 +79,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 #### Steering Behaviors
 
    - _List all behaviors used by this state_
-      - Stay in bounds, Evade
+      - Stay in bounds, Flee
    - Obstacles - Flack
    - Seperation - All other planes
    
@@ -89,11 +89,12 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Sources
 
-   - https://opengameart.org/content/wwii-pixel-aircraft-sidescroller-sprites
+   - Plane Sprites: https://opengameart.org/content/wwii-pixel-aircraft-sidescroller-sprites
 
 ## Make it Your Own
 
    - I would like to make it so the planes can attack/destroy each other.
+   - (Finished) I made it so when 2 enemy planes collide, they will destroy each other. This is most common with the fighters pursuing an enemy. 
 
 ## Known Issues
 
